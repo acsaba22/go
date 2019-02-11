@@ -1,11 +1,12 @@
 package wordfreq
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func ExampleGetWordCount() {
-	var wf WordFreq
-	fmt.Println("zero:", wf.GetWordCount("zero"))
-
+	wf := WordFreq{}
+	// a := wordfreq.wor
 	wf.AddWords("Is this a test or just an example?")
 	wf.AddWords("It's an example.")
 
@@ -19,7 +20,6 @@ func ExampleGetWordCount() {
 	fmt.Println("example:", wf.GetWordCount("example"))
 
 	// Output:
-	// zero: 0
 	// test: 1
 	// example: 2
 	// test: 4

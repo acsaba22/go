@@ -101,8 +101,8 @@ Test the package. To have tab completion you can write
 `src/github.com/acsaba22/go/hello` and then delete src.
 
 ```
-$ go run github.com/acsaba22/go/hello
-$ cd <...>/acsaba22/go/hello
+$ go run github.com/acsaba22/go/hellocourse
+$ cd <...>/acsaba22/go/hellocourse
 $ go run main.go
 ```
 
