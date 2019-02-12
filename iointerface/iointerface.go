@@ -6,11 +6,9 @@ import (
 	"io"
 )
 
-type stringReader struct {
-	s string
-	i int
-}
-
+// Create a type stringReader, it should contain a string and an int.
+// Make it satisfy the io.Reader interface.
+//
 // go doc io.Reader
 // copy(dest, src) has a special case for copy(byte[], string)
 
