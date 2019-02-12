@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mempb;
+
+message GetRequest {
+    string key = 1;
+}
+
+message GetResponse {
+    string requested_key = 1;
+    bool exists = 3;
+    string value = 2;
+}
+
+service MemServer {
+    rpc Get(GetRequest) returns (GetResponse);
+}
+

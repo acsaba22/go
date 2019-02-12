@@ -1,0 +1,79 @@
+$ cd $GOPATH/src/
+
+We will install grpc and proto tools!
+More info here: https://grpc.io/docs/quickstart/go.html
+
+1)
+$ go get -u google.golang.org/grpc
+
+2)
+Download the proto compiler https://github.com/google/protobuf/releases
+unzip it in a directory outside the gopath.
+You have a bin directory where you unzipped it. Add it to you $PATH
+You should be able to do this from any place:
+
+$ protoc --version
+libprotoc 3.7.0
+
+3) install the protoc plugin for Go
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+Add $GOPATH/bin also to $PATH (if not already), so the new tool is visible (protoc-gen-go)
+
+INSTALATION READY! Great, let's get to it!
+
+A) Define the intefrace between client and server:
+
+$ cd course/grpc
+$ mkdir mempb
+$ touch mempb/mempb.proto
+
+Add message/server definition bit by bit and always generate a go file from it, check
+how it's growing:
+
+$ protoc -I mempb/ mempb/mempb.proto --go_out=plugins=grpc:mempb
+
+------- mempb.proto
+syntax = "proto3";
+
+package mempb;
+
+message GetRequest {
+    string key = 1;
+}
+
+message GetResponse {
+    string requested_key = 1;
+    bool exists = 3;
+    string value = 2;
+}
+
+service MemServer {
+    rpc Get(GetRequest) returns (GetResponse);
+}
+-----
+
+B) Make a server:
+
+-------Boilerplate for server/main.go
+func main() {
+	lis, err := net.Listen("tcp", ":9999")
+  s := grpc.NewServer() // import "google.golang.org/grpc"
+  mempb.RegisterMemServerServer(s, YOURSERVER)
+  err := s.Serve(lis)
+}
+
+
+C) Make a client:
+
+-------Boilerplate for client/main.go
+func main() {
+	conn, err := grpc.Dial("localhost:9999", grpc.WithInsecure())
+  if err...
+	defer conn.Close()
+	c := mempb.NewMemServerClient(conn)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+  // then you can call c.Get!
+}
