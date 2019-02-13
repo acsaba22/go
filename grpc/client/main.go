@@ -17,16 +17,16 @@ func main() {
 	}
 	k := os.Args[1]
 
-	conn, err := grpc.Dial("localhost:9999", grpc.WithInsecure())
+	channel, err := grpc.Dial("localhost:9999", grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}
-	defer conn.Close()
-	c := mempb.NewMemServerClient(conn)
+	defer channel.Close()
+	client := mempb.NewMemServerClient(channel)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Get(ctx, &mempb.GetRequest{Key: k})
+	r, err := client.Get(ctx, &mempb.GetRequest{Key: k})
 	if err != nil {
 		panic(err)
 	}

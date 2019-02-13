@@ -68,12 +68,12 @@ C) Make a client:
 
 -------Boilerplate for client/main.go
 func main() {
-	conn, err := grpc.Dial("localhost:9999", grpc.WithInsecure())
+	channel, err := grpc.Dial("localhost:9999", grpc.WithInsecure())
   if err...
-	defer conn.Close()
-	c := mempb.NewMemServerClient(conn)
+	defer channel.Close()
+	client := mempb.NewMemServerClient(channel)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-  // then you can call c.Get!
+  // then you can call client.Get!
 }

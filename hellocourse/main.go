@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("Wednesday.")
+	fmt.Println("Last day :(")
 }

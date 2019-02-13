@@ -8,9 +8,12 @@ func ExampleIoWordFreq() {
 	fmt.Println(iowf.GetWordCount("hello"))
 
 	fmt.Fprintln(&iowf, "and hello again")
+	fmt.Println(iowf.GetWordCount("hello"))
 
+	fmt.Fprintln(&iowf, "and hello again")
 	fmt.Println(iowf.GetWordCount("hello"))
 	// Output:
 	// 1
 	// 2
+	// 3
 }
