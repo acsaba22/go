@@ -1,6 +1,8 @@
 package iowordfreq
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func ExampleIoWordFreq() {
 	iowf := IoWordFreq{}
@@ -10,7 +12,7 @@ func ExampleIoWordFreq() {
 	fmt.Fprintln(&iowf, "and hello again")
 	fmt.Println(iowf.GetWordCount("hello"))
 
-	fmt.Fprintln(&iowf, "and hello again")
+	fmt.Fprintln(&iowf, "and hello again again")
 	fmt.Println(iowf.GetWordCount("hello"))
 	// Output:
 	// 1
