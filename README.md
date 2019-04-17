@@ -56,7 +56,7 @@ $ go build hello.go
 $ ./hello
 $ go list ...
 $ go list course/...
-$ go list ...html...
+$ go list ...syscall...
 $ go help
 $ go help list
 ```
@@ -70,7 +70,7 @@ $ go doc fmt.Println
 
 #### Optional: copy the std packages
 
-If you want to browse the source code of the standart packages
+If you want to browse the source code of the standard packages
 on the web you can do it [here](https://github.com/golang/go/tree/master/src).
 
 If you want to have it locally then create a directory and clone it:
