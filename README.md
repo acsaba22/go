@@ -4,7 +4,7 @@ TODO table of contents
 
 ## Useful links
 
-* [Presentation](https://docs.google.com/presentation/d/1kUUSRivsL7vkbUbboYhYbNu3hSPYPq0A25UbGW9vlTg/edit?usp=sharing)
+* [Presentation](https://docs.google.com/presentation/d/1AK8hD7sfoCab_tDSoUi2_ckL-r4-mIPYegTU1aysLGE/edit?usp=sharing)
 * [Language specification](https://golang.org/ref/spec)
 * [Package documentation](https://golang.org/pkg/)
 * [Package source code](https://github.com/golang/go/tree/master/src)
