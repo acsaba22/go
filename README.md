@@ -185,7 +185,7 @@ Add go extension
 * filter: go lang
 * Install rich go language support
 * Whenever it asks for installing plugin install.
-* add folder course/
+* add folder to workspace course/
 * debug hello/main.go
 
 ctrl-space completion for fmt.Println
