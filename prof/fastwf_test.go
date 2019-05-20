@@ -17,12 +17,27 @@ func ExampleIoWordFreq() {
 	fmt.Fprintln(&iowf, "and hello again")
 	fmt.Println(iowf.GetWordCount("hello"))
 
-	fmt.Fprintln(&iowf, "and hello again again")
-	fmt.Println(iowf.GetWordCount("hello"))
+	fmt.Fprint(&iowf, "and hello again again")
+	fmt.Println(iowf.GetWordCount("again"))
+
+	fmt.Fprintln(&iowf, "cipő")
+	fmt.Println(iowf.GetWordCount("cipő"))
+
+	fmt.Fprintln(&iowf, "你，我")
+	fmt.Println(iowf.GetWordCount("你"))
+	fmt.Println(iowf.GetWordCount("我"))
+
+	fmt.Fprintln(&iowf, "one，two")
+	fmt.Println(iowf.GetWordCount("two"))
+
 	// Output:
 	// 1
 	// 2
 	// 3
+	// 1
+	// 1
+	// 1
+	// 1
 }
 
 func ExampleFastWF() {
@@ -33,12 +48,27 @@ func ExampleFastWF() {
 	fmt.Fprintln(&iowf, "and hello again")
 	fmt.Println(iowf.GetWordCount("hello"))
 
-	fmt.Fprintln(&iowf, "and hello again again")
-	fmt.Println(iowf.GetWordCount("hello"))
+	fmt.Fprint(&iowf, "and hello again again")
+	fmt.Println(iowf.GetWordCount("again"))
+
+	fmt.Fprintln(&iowf, "cipő")
+	fmt.Println(iowf.GetWordCount("cipő"))
+
+	fmt.Fprintln(&iowf, "你，我")
+	fmt.Println(iowf.GetWordCount("你"))
+	fmt.Println(iowf.GetWordCount("我"))
+
+	fmt.Fprintln(&iowf, "one，two")
+	fmt.Println(iowf.GetWordCount("two"))
+
 	// Output:
 	// 1
 	// 2
 	// 3
+	// 1
+	// 1
+	// 1
+	// 1
 }
 
 func TestWithFile(t *testing.T) {

@@ -18,10 +18,14 @@ func ExampleGetWordCount() {
 	fmt.Println("test:", wf.GetWordCount("test"))
 	fmt.Println("example:", wf.GetWordCount("example"))
 
+	wf.AddWords("This is last")
+	fmt.Println("last:", wf.GetWordCount("last"))
+
 	// Output:
 	// zero: 0
 	// test: 1
 	// example: 2
 	// test: 4
 	// example: 2
+	// last: 1
 }
