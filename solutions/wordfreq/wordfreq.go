@@ -51,5 +51,8 @@ func splitToWords(s string) []string {
 			buf.Reset()
 		}
 	}
+	if 0 < buf.Len() {
+		ret = append(ret, buf.String())
+	}
 	return ret
 }

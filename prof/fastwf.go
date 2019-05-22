@@ -13,18 +13,23 @@ func (wf *WordFreq) AddWords(s string) bool {
 	if wf.words == nil {
 		wf.words = make(map[string]int)
 	}
-	start := 0
-	finish := -1
+	start := -1
 	for i, r := range s {
 		if unicode.IsLetter(r) {
-			finish = i
+			if start < 0 {
+				start = i
+			}
 		} else {
-			if start <= finish {
-				w := strings.ToLower(s[start : finish+1])
+			if start >= 0 {
+				w := strings.ToLower(s[start:i])
 				wf.words[w]++
 			}
-			start = i + 1
+			start = -1
 		}
+	}
+	if start >= 0 {
+		w := strings.ToLower(s[start:len(s)])
+		wf.words[w]++
 	}
 	return false
 }
