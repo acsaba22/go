@@ -1,15 +1,17 @@
 package sortdemo
 
 import (
+	"fmt"
 	"reflect"
 	"sort"
 	"testing"
 )
 
 func TestStringSort(t *testing.T) {
-	ss := SSlice{"xyz", "abc", "aaa", "ab"}
-	sort.Sort(ss)
-	if !reflect.DeepEqual(ss, SSlice{"aaa", "ab", "abc", "xyz"}) {
-		t.Errorf("Bad order %v", ss)
+	s := []string{"xyz", "abc", "aaa", "ab"}
+	sort.Sort(SSlice(s))
+	if !reflect.DeepEqual(s, []string{"aaa", "ab", "abc", "xyz"}) {
+		t.Errorf("Bad order %v", s)
 	}
+	fmt.Println(s)
 }
