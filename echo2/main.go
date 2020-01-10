@@ -6,7 +6,7 @@ import (
 )
 
 var s = flag.String("s", " ", "Separator between tokens")
-var newLine = flag.Bool("nonewline", false, "Add new line at the end.")
+var noNewLine = flag.Bool("nonewline", false, "Add new line at the end.")
 
 func main() {
 	flag.Parse()
@@ -16,7 +16,7 @@ func main() {
 		}
 		fmt.Printf("%s", a)
 	}
-	if !*newLine {
+	if !*noNewLine {
 		fmt.Println()
 	}
 }
