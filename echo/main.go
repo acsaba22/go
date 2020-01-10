@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	for i := 1; i < len(os.Args); i++ {
-		fmt.Println(os.Args[i])
+	// fmt.Println(os.Args)
+	for _, v := range os.Args[1:] {
+		fmt.Println(v)
 	}
 }
