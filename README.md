@@ -30,7 +30,7 @@ if you use a different one.
 
 ### go tool, the swiss army knife
 
-#### Write hello world.
+#### Write hello world the old way
 
 ```
 $ cd $GOPATH
@@ -88,28 +88,28 @@ $ go get -u github.com/acsaba22/go/hellocourse
 $ ./bin/hellocourse
 ```
 
+Another way to run it:
+
+```
+$ go run github.com/acsaba22/go/hellocourse
+```
+
 Look around.
 
 ```
 $ go list github.com/acsaba22/go/...
 $ cd src/github.com/acsaba22/go
 $ ls
-$ git status
-```
-
-Test the package. To have tab completion you can write
-`src/github.com/acsaba22/go/hello` and then delete src.
-
-```
-$ go run github.com/acsaba22/go/hellocourse
-$ cd <...>/acsaba22/go/hellocourse
+$ git log -3
+$ cd hellocourse
+$ cat main.go
 $ go run main.go
 ```
 
 ### Use a library
 
 
-Edit hello.go to call the function from the hello. See the documentation:
+Edit your hello.go to call the function from the hello. See the documentation:
 
 ```
 $ go doc github.com/acsaba22/go/hellolib
@@ -122,7 +122,9 @@ After you finished coding:
 $ go run course/hello/hello.go
 ```
 
-Check hellolib/greetings.go. Try using hellolib.actualGreeting.
+Check the sourcecode of hellolib/greetings.go, it contains the actualGreeting function.
+
+Try using hellolib.actualGreeting.
 
 ```
 $ go run course/hello/hello.go
@@ -139,7 +141,7 @@ go list -json course/hello
 Let's look at building why building/compilation.
 Make it compile again.
 
-Look into `pkg/.../github.com/acsaba22/go` if there is a hellolib.a remove it.
+Look into `pkg/<YOURPLATFORM>/github.com/acsaba22/go` if there is a hellolib.a remove it.
 
 ```
 $ rm pkg/linux_amd64/github.com/acsaba22/go/hellolib.a
@@ -147,6 +149,7 @@ $ rm pkg/linux_amd64/github.com/acsaba22/go/hellolib.a
 
 
 ```
+$ cd $GOPATH
 $ go build course/hello/hello.go
 $ ./hello
 $ ls pkg/linux_amd64/github.com/acsaba22/go
@@ -168,6 +171,7 @@ $ go build -i course/hello/hello.go
 $ ls pkg/linux_amd64/github.com/acsaba22/go
 # hellolib.a is there, subsequent builds are faster
 ```
+
 
 ## Install an IDE
 
@@ -200,3 +204,28 @@ look around in $GOPATH/src and $GOPATH/bin for what was added.
 * Open project, course/
 * Check that you can debug hello.go
 * Checkand that you get code completion.
+
+#### Let's move to modules
+
+Go somewhere outside of $GOPATH.
+
+```
+$ mkdir coursemod
+$ cd coursemod
+$ go mod init mycompany.com/firstgo
+$ go list -m
+```
+
+If you like git, create a git repository now:
+
+```
+$ git init
+```
+
+Add this new folder to your VSCode/GoLand environment.
+
+* Create the helloworld program again here.
+* Try debugging/launching.
+* Try importing and using github.com/acsaba22/go/hellolib
+
+
