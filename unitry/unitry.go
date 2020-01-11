@@ -10,7 +10,9 @@ func playground() {
 }
 
 func lenUtf8(s string) int {
-	// go doc utf8.DecodeRuneInString
+	// One unicode character can be multiple bytes.
+	// Loop over the string with an integer and advance the int with the size of the current rune.
+	// $ go doc utf8.DecodeRuneInString
 	return 0
 }
 

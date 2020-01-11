@@ -51,6 +51,7 @@ func TestHasPrefix(t *testing.T) {
 		{"hello world", "world", false},
 		{"Grüezi", "Grüe", true},
 		{"Grüezi", "Grue", false},
+		{"short", "longer", false},
 	}
 	for _, e := range e {
 		if b := hasPrefix(e.s1, e.s2); e.b != b {

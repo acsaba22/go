@@ -21,9 +21,8 @@ func playground() {
 func lenUtf8(s string) int {
 	// go doc utf8.DecodeRuneInString
 	// return 0
-	i := 0
 	n := 0
-	for i < len(s) {
+	for i := 0; i < len(s); {
 		_, k := utf8.DecodeRuneInString(s[i:])
 		n++
 		i += k
