@@ -3,7 +3,6 @@ package composites
 import (
 	"bufio"
 	"bytes"
-	"fmt"
 	"strings"
 	"testing"
 )
@@ -51,5 +50,4 @@ func TestEq(t *testing.T) {
 			t.Errorf("Eq(%v, %v) != %t", e.x, e.y, e.r)
 		}
 	}
-	fmt.Println(e)
 }

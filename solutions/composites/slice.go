@@ -5,9 +5,9 @@ package composites
 func RemoveEmpty(sslice []string) []string {
 	// return []string{}
 	n := 0
-	for i := 0; i < len(sslice); i++ {
-		if sslice[i] != "" {
-			sslice[n] = sslice[i]
+	for _, v := range sslice {
+		if v != "" {
+			sslice[n] = v
 			n++
 		}
 	}
