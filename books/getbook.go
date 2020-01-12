@@ -1,7 +1,7 @@
 package main
 
-const defaultid = "L7vObOAUAPoC"
-const url_base = "https://www.googleapis.com/books/v1/volumes/"
+const defaultID = "L7vObOAUAPoC"
+const urlBase = "https://www.googleapis.com/books/v1/volumes/"
 
 // Google books has a REST API, let's use it! Example link:
 // https://www.googleapis.com/books/v1/volumes/L7vObOAUAPoC
