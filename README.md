@@ -228,4 +228,17 @@ Add this new folder to your VSCode/GoLand environment.
 * Try debugging/launching.
 * Try importing and using github.com/acsaba22/go/hellolib
 
+```
+$ go get -u github.com/acsaba22/go
+$ go list -m ...
+<YOURPACKAGE>
+github.com/acsaba22/go v1.0.0
+go run github.com/acsaba22/go/hellocourse
+```
+
+Check where the dependency was added, look around.
+
+```
+$ go list -m -f '{{.Dir}}' ...acsaba22/go
+```
 
