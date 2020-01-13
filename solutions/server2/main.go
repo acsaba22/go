@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 )
@@ -28,23 +29,40 @@ func main() {
 //
 // Given req of type http.Request
 // you can req.URL.Query().Get("key")
+//
+// First write simple text to the response.
+//
+// Optional if you have time: try html.template for the /list handler.
+// * template.New("foo").Parse(`<html>...</html>`)
+// * template.Execute
+// * Try injecting html code through db values.
 
 func handleDefault(w http.ResponseWriter, req *http.Request) {
-	w.WriteHeader(http.StatusBadRequest)
+	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprintf(w, "No such page: %s\n", req.URL)
 }
 
+const layout = `
+<html><body>
+{{range $key, $value := .}} <li> {{$key}} <br/> {{$value}} </li> {{end}}
+</body></html>`
+
 func list(w http.ResponseWriter, req *http.Request) {
-	for k, v := range db {
-		fmt.Fprintf(w, "%s: %s\n", k, v)
+	// for i, j := range db {
+	// 	fmt.Fprintf(w, "%s: %s\n", i, j)
+	// }
+	template, err := template.New("foo").Parse(layout)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 	}
+	template.Execute(w, db)
 }
 
 func single(w http.ResponseWriter, req *http.Request) {
 	key := req.URL.Query().Get("key")
 	if key == "" {
 		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintf(w, "Key not specified\n")
+		fmt.Fprintf(w, "Key not specified, add &key= to the url\n")
 		return
 	}
 	v, ok := db[key]

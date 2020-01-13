@@ -27,3 +27,10 @@ func main() {
 //
 // Given req of type http.Request
 // you can req.URL.Query().Get("key")
+//
+// First write simple text to the response.
+//
+// Optional if you have time: try html.template for the /list handler.
+// * template.New("foo").Parse(`<html>...</html>`)
+// * template.Execute
+// * Try injecting html code through db values.
