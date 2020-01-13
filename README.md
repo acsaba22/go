@@ -1,7 +1,5 @@
 # Learning Go programming
 
-TODO table of contents
-
 ## Useful links
 
 * [Presentation](https://docs.google.com/presentation/d/1u4F_frmczfpIRFgloP2UzJAid8W5BkQQwAgXf14ih6M/edit?usp=sharing)
