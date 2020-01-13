@@ -15,7 +15,7 @@ TODO table of contents
 
 https://golang.org/doc/install
 
-Add go/bin directory to you PATH in $HOME/.profile. Test your instalation:
+Add go/bin directory to you PATH in $HOME/.profile. Test your installation:
 
 ```
 $ go version
@@ -28,7 +28,7 @@ Create workspace directory. Default is $HOME/go
 Set [GOPATH](https://github.com/golang/go/wiki/SettingGOPATH)
 if you use a different one.
 
-### go tool, the swiss army knife
+### go tool, the Swiss army knife
 
 #### Write hello world the old way
 
