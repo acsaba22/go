@@ -7,9 +7,10 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
 	"time"
 
-	"github.com/acsaba22/go/iowordfreq"
+	"github.com/acsaba22/go/solutions/iowordfreq"
 )
 
 const fileName = "urls.txt"
@@ -29,6 +30,11 @@ func getUrls() (urls []string, err error) {
 	return
 }
 
+type wfMu struct {
+	sync.Mutex
+	iowordfreq.IoWordFreq
+}
+
 func main() {
 	start := time.Now()
 	urls, err := getUrls()
@@ -36,7 +42,7 @@ func main() {
 		fmt.Println("Error:", err)
 		return
 	}
-	wf := iowordfreq.IoWordFreq{}
+	wf := wfMu{}
 	ch := make(chan string)
 	for _, url := range urls {
 		go fetch(url, &wf, ch)
@@ -51,7 +57,7 @@ func main() {
 	}
 }
 
-func fetch(url string, w io.Writer, ch chan<- string) {
+func fetch(url string, w *wfMu, ch chan<- string) {
 	start := time.Now()
 	resp, err := http.Get(url)
 	if err != nil {
@@ -59,7 +65,9 @@ func fetch(url string, w io.Writer, ch chan<- string) {
 		return
 	}
 
+	w.Lock()
 	nbytes, err := io.Copy(w, resp.Body)
+	w.Unlock()
 	resp.Body.Close()
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
