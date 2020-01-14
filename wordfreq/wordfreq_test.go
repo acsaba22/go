@@ -2,7 +2,7 @@ package wordfreq
 
 import "fmt"
 
-func ExampleGetWordCount() {
+func ExampleWordFreq_GetWordCount() {
 	var wf WordFreq
 	fmt.Println("zero:", wf.GetWordCount("zero"))
 
