@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/acsaba22/go/iowordfreq"
+	"github.com/acsaba22/go/solutions/iowordfreq"
 )
 
 func ExampleIoWordFreq() {
