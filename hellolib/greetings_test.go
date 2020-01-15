@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"lib/hellolib"
-	// "github.com/acsaba22/go/hellolib"
 )
 
 func ExampleGreeting() {
