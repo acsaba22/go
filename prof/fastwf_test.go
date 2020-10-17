@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"testing"
-
-	"github.com/acsaba22/go/solutions/iowordfreq"
 )
 
-func ExampleIoWordFreq() {
-	iowf := iowordfreq.IoWordFreq{}
+func ExampleWordFreq() {
+	iowf := WordFreq{}
 
 	iowf.AddWords("hello friend")
 	fmt.Println(iowf.GetWordCount("hello"))
@@ -78,7 +76,7 @@ func TestWithFile(t *testing.T) {
 		return
 	}
 	s := string(buf)
-	iowf := iowordfreq.IoWordFreq{}
+	iowf := WordFreq{}
 	fmt.Fprint(&iowf, s)
 	if iowf.GetWordCount("Romeo") < 100 || iowf.GetWordCount("Juliet") < 100 {
 		t.Errorf(
@@ -114,7 +112,7 @@ func BenchmarkRomeoJuliet(b *testing.B) {
 	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		iowf := iowordfreq.IoWordFreq{}
+		iowf := WordFreq{}
 		iowf.Write(buf)
 		if iowf.GetWordCount("Romeo") < 100 {
 			b.Errorf(
@@ -124,7 +122,7 @@ func BenchmarkRomeoJuliet(b *testing.B) {
 	}
 }
 
-func BenchmarkRomeoJulieFast(b *testing.B) {
+func BenchmarkRomeoJulietFast(b *testing.B) {
 	fmt.Println("Benchmark start")
 	buf, err := ioutil.ReadFile("../testdata/romeo_juliet.txt")
 	if err != nil {

@@ -1,37 +1,34 @@
-1) Create a new test, and make it pass (rename package,...)
+0) install graphviz: (e.g. sudo apt install graphviz)
 
-$ cp ../iowordfreq/iowordfreq_test.go ./fastWF_test.go
+1) Start cpu profiling. Try at least these:
 
-
-2) Make a new test which reads ../testdata/romeo_juliet.txt and checks that Romeo
-   count is > 100.
+$ go test -run=NONE -bench=RomeoJuliet$ -cpuprofile=cpu.out
 
 
-3) Turn the previous into a banchmark test.
-
-$ go test -run=NONE -bench=.
-
-
-4) Start cpu profiling. Try at least these:
-
-$ go test -run=NONE -bench=. -cpuprofile=cpu.out
-
-$ go tool pprof text -nodecount=10 prof.test cpu.out
-$ go tool pprof web prof.test cpu.out
+$ go tool pprof -web prof.test cpu.out
 $ go tool pprof prof.test cpu.out
 (pprof) top10
-(pprof) top20 -cum
+(pprof) top10 -cum
+(pprof) web
+(pprof) list AddWords
+
+1) Repeat profiling for fast.
+
+$ go test -run=NONE -bench=RomeoJulietFast$ -cpuprofile=cpu.out
+
+
+$ go tool pprof -web prof.test cpu.out
+$ go tool pprof prof.test cpu.out
+(pprof) top10
+(pprof) top10 -cum
 (pprof) web
 (pprof) list AddWords
 
 
-5) Check mem profile.
+2) Check mem profile.
 
-$ go test -run=NONE -bench=. -benchmem
-$ go test -run=NONE -bench=. -memprofile=mem.out
-$ go tool pprof ...
+$ go test -run=NONE -bench=RomeoJuliet$ -benchmem
+$ go test -run=NONE -bench=RomeoJuliet$ -memprofile=mem.out
+$ go tool pprof prof.test mem.out
 
 
-6) Write a fastWF.go. Start with copying over the source code and try to
-   optimeize it. Keep the original banchmark and create a new one so you can
-   compare it.
