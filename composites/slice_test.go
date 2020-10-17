@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestRemoveEmpty(t *testing.T) {
+func TestSliceRemoveEmpty(t *testing.T) {
 	e := []struct {
 		i []string
 		o []string
@@ -28,7 +28,7 @@ func TestRemoveEmpty(t *testing.T) {
 	}
 }
 
-func TestRemoveEmptyModifiesOrig(t *testing.T) {
+func TestSliceRemoveEmptyModifiesOrig(t *testing.T) {
 	s := []string{"one", "", "three"}
 	RemoveEmpty(s)
 	if s[2] != "three" {
@@ -36,7 +36,7 @@ func TestRemoveEmptyModifiesOrig(t *testing.T) {
 	}
 }
 
-func TestRemove(t *testing.T) {
+func TestSliceRemove(t *testing.T) {
 	v := []int{0, 1, 2, 3}
 
 	v = Remove(v, 1)

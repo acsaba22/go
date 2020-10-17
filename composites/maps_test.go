@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestSortedPrint(t *testing.T) {
+func TestMapSortedPrint(t *testing.T) {
 	m := map[string]string{
 		"abc": "a",
 		"xyz": "x",
@@ -32,7 +32,7 @@ func TestSortedPrint(t *testing.T) {
 	}
 }
 
-func TestEq(t *testing.T) {
+func TestMapEq(t *testing.T) {
 	type msi map[string]int
 	e := []struct {
 		x, y msi

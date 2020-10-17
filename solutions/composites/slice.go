@@ -14,10 +14,9 @@ func RemoveEmpty(sslice []string) []string {
 	return sslice[:n]
 }
 
-// Remove the element with index v. Modifies v.
-func Remove(v []int, i int) []int {
+// Remove the element with index k. Modifies v.
+func Remove(v []int, k int) []int {
 	// use built in function copy
-	// return v
-	copy(v[i:], v[i+1:])
+	copy(v[k:], v[k+1:])
 	return v[:len(v)-1]
 }
