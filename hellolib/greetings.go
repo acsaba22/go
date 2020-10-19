@@ -13,7 +13,7 @@
 package hellolib
 
 func actualGreeting() string {
-	return "Hello btw. (Thursday)"
+	return "Hello btw."
 }
 
 // Greeting is an exported function, feel free to use it.
