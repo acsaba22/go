@@ -5,7 +5,7 @@ $ go tool compile -help
   -N    disable optimizations
   -l    disable inlining
   -m    print optimization decisions
-$ go build -gcflags '-N -L -l -m' -o m.exe mycompany.com/firstgo/typedebugmain
+$ go build -gcflags '-N -L -l -m' -o m.exe mycompany.com/course/typedebug
 $ ls
 m.exe
 $ go tool compile -N -L -l -m ../typedebug/typedebug.go
