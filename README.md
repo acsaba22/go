@@ -126,9 +126,9 @@ $ go doc fmt.Println
 The training repository contains the codelabs.
 
 ```
-$ go cat go.mod
+$ cat go.mod
 $ go run  github.com/acsaba22/go/hellocourse
-$ go cat go.mod
+$ cat go.mod
 
 # Notice that a new package was added
 
@@ -139,7 +139,7 @@ Check where the dependency was added in your $GOPATH.
 
 ```
 $ go list -m -f '{{.Dir}}' ...acsaba22/go
-# Go to that directory:
+# Go to that directory, perhaps in a second terminal:
 $ cd `go list -m -f '{{.Dir}}' ...acsaba22/go`
 $ ls
 $ cd hellocourse
