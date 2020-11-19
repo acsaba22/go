@@ -31,7 +31,7 @@ func TestSliceRemoveEmpty(t *testing.T) {
 func TestSliceRemoveEmptyModifiesOrig(t *testing.T) {
 	s := []string{"one", "", "three"}
 	RemoveEmpty(s)
-	if s[2] != "three" {
+	if s[1] != "three" {
 		t.Errorf("RemoveEmpty expected to modify paramter.")
 	}
 }

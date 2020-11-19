@@ -111,7 +111,7 @@ $ go help build
 You can also run by specifying the whole package name:
 
 ```
-$ go run go run mycompany.com/gocourse/hello
+$ go run mycompany.com/gocourse/hello
 ```
 
 Read documentation from console.
@@ -127,7 +127,7 @@ The training repository contains the codelabs.
 
 ```
 $ cat go.mod
-$ go run  github.com/acsaba22/go/hellocourse
+$ go run github.com/acsaba22/go/hellocourse
 $ cat go.mod
 
 # Notice that a new package was added

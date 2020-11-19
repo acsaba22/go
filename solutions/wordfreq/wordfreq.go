@@ -24,7 +24,7 @@ type WordFreq struct {
 	words map[string]int
 }
 
-func (wf *WordFreq) AddWords(sentence string) bool {
+func (wf *WordFreq) AddWords(sentence string) {
 	if wf.words == nil {
 		wf.words = make(map[string]int)
 	}
@@ -32,7 +32,6 @@ func (wf *WordFreq) AddWords(sentence string) bool {
 	for _, w := range words {
 		wf.words[w]++
 	}
-	return false
 }
 
 func (wf WordFreq) GetWordCount(word string) int {
