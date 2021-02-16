@@ -18,7 +18,7 @@ var (
 
 // Make it print out 10 10 10
 // * First create a variadic function sum
-// * In sumVec call sum
+// * In sumSlice call sum
 // * In concat call append
 func main() {
 	// fmt.Println(sum(1, 2, 3, 4))
